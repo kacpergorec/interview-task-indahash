@@ -4,6 +4,7 @@ declare (strict_types=1);
 namespace App\Modules\Products\Infrastructure\Repositories;
 
 use App\Modules\Products\Domain\Entities\Product;
+use App\Modules\Products\Domain\Repositories\ProductRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 

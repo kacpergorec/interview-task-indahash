@@ -7,16 +7,16 @@ use Symfony\Component\Uid\Uuid;
 
 abstract class AggregateRootId implements \JsonSerializable
 {
-    protected Uuid $uuid;
+    protected Uuid $id;
 
     public function __construct(Uuid $uuid)
     {
-        $this->uuid = $uuid;
+        $this->id = $uuid;
     }
 
     public function toUuid(): Uuid
     {
-        return $this->uuid;
+        return $this->id;
     }
 
     public static function fromString(string $uuid): static
@@ -31,7 +31,7 @@ abstract class AggregateRootId implements \JsonSerializable
 
     public function __toString(): string
     {
-        return $this->uuid->toString();
+        return $this->id->toString();
     }
 
     public static function new(): static

@@ -8,7 +8,7 @@ use App\Modules\Products\Domain\Entities\Product;
 
 interface ProductRepositoryInterface
 {
-    public function save(Product $Product): void;
+    public function save(Product $product): void;
 
-    public function delete(Product $Product): void;
+    public function delete(Product $product): void;
 }

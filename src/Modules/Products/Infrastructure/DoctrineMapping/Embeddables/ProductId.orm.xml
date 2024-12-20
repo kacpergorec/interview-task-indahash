@@ -5,6 +5,6 @@
                                       http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
     <embeddable name="App\Modules\Products\Domain\ValueObjects\ProductId">
-        <id name="uuid" type="uuid" column="uuid"/>
+        <id name="id" type="uuid" column="id"/>
     </embeddable>
 </doctrine-mapping>

@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Products\Domain\Entities;
 
+use App\Modules\Products\Domain\Events\ProductCreatedEvent;
 use App\Modules\Products\Domain\Exceptions\DescriptionTooShortException;
 use App\Modules\Products\Domain\Exceptions\NameRequiredException;
 use App\Modules\Products\Domain\ValueObjects\ProductId;
@@ -12,10 +13,10 @@ use App\Shared\Domain\Money;
 class Product extends AggregateRoot
 {
     private function __construct(
-        private ProductId $id,
-        private string $name,
-        private string $description,
-        private Money $grossPrice
+        public readonly ProductId $id,
+        private string   $name,
+        private string   $description,
+        private Money    $grossPrice
     ) {}
 
     public static function create(
@@ -32,9 +33,32 @@ class Product extends AggregateRoot
             throw new DescriptionTooShortException('Description is too short');
         }
 
-        return new self($id, $name, $description, $grossPrice);
+        $product = new self($id, $name, $description, $grossPrice);
+
+        $product->raise(new ProductCreatedEvent($product->id));
+
+        return $product;
     }
 
+    public function getId(): ProductId
+    {
+        return $this->id;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+
+    public function getGrossPrice(): Money
+    {
+        return $this->grossPrice;
+    }
 
     public function toArray(): array
     {
