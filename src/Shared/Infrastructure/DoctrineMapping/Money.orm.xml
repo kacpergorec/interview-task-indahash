@@ -6,6 +6,6 @@
 
     <embeddable name="App\Shared\Domain\Money">
         <field name="value" type="integer"/>
-        <field name="currency" type="string"/>
+        <field name="currency" type="string" enum-type="App\Shared\Enums\Currency"/>
     </embeddable>
 </doctrine-mapping>

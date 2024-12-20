@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Modules\Products\Domain\Entities;
 
+use App\Modules\Products\Domain\Exceptions\DescriptionTooShortException;
+use App\Modules\Products\Domain\Exceptions\NameRequiredException;
 use App\Modules\Products\Domain\ValueObjects\ProductId;
 use App\Shared\Domain\AggregateRoot;
 use App\Shared\Domain\Money;
@@ -22,6 +24,14 @@ final class Product extends AggregateRoot
         string $description,
         Money $grossPrice
     ): self {
+        if (empty($name)) {
+            throw new NameRequiredException('Name is required');
+        }
+
+        if (strlen($description) <= 10) {
+            throw new DescriptionTooShortException('Description is too short');
+        }
+
         return new self($id, $name, $description, $grossPrice);
     }
 

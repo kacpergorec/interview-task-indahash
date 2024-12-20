@@ -3,12 +3,14 @@ declare (strict_types=1);
 
 namespace App\Shared\Domain;
 
+use App\Shared\Enums\Currency;
+
 readonly class
 Money
 {
     public function __construct(
         public int    $value,
-        public string $currency = 'PLN'
+        public Currency $currency = Currency::PLN
     )
     {
         if ($value < 0) {
@@ -34,7 +36,7 @@ Money
         );
     }
 
-    public function validateCurrency(string $currency): void
+    public function validateCurrency(Currency $currency): void
     {
         if ($this->currency !== $currency) {
             throw new \InvalidArgumentException('Currency mismatch');
