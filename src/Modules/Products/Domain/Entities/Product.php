@@ -9,7 +9,7 @@ use App\Modules\Products\Domain\ValueObjects\ProductId;
 use App\Shared\Domain\AggregateRoot;
 use App\Shared\Domain\Money;
 
-final class Product extends AggregateRoot
+class Product extends AggregateRoot
 {
     private function __construct(
         private ProductId $id,
