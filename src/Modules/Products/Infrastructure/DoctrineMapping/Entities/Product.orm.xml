@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                                      http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="App\Modules\Products\Domain\Entities\Product" table="product">
+        <embedded name="id" class="App\Modules\Products\Domain\ValueObjects\ProductId" use-column-prefix="false"/>
+        <field name="name" type="string" nullable="false"/>
+        <field name="description" type="string" nullable="false"/>
+        <embedded name="grossPrice" class="App\Shared\Domain\Money" column-prefix="gross_price_"/>
+    </entity>
+</doctrine-mapping>

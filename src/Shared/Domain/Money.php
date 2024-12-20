@@ -1,9 +1,10 @@
 <?php
 declare (strict_types=1);
 
-namespace App\Shared\Domain\ValueObject;
+namespace App\Shared\Domain;
 
-readonly class  Money
+readonly class
+Money
 {
     public function __construct(
         public int    $value,
@@ -29,14 +30,6 @@ readonly class  Money
 
         return new Money(
             value: $this->value + $money->value,
-            currency: $this->currency
-        );
-    }
-
-    public function multiply(int $quantity): Money
-    {
-        return new Money(
-            value: $this->value * $quantity,
             currency: $this->currency
         );
     }

@@ -21,9 +21,21 @@ doctrine:
             Product:
                 type: xml
                 is_bundle: false
-                dir: '%kernel.project_dir%/src/Modules/Products/Infrastructure/DoctrineMapping'
+                dir: '%kernel.project_dir%/src/Modules/Products/Infrastructure/DoctrineMapping/Entities'
                 prefix: 'App\Modules\Products\Domain\Entities'
                 alias: Product
+            ProductVO:
+                type: xml
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/Modules/Products/Infrastructure/DoctrineMapping/Embeddables'
+                prefix: 'App\Modules\Products\Domain\ValueObjects'
+                alias: ProductVO
+            Shared:
+                type: xml
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/Shared/Infrastructure/DoctrineMapping'
+                prefix: 'App\Shared\Domain'
+                alias: Shared
         controller_resolver:
             auto_mapping: false
 
