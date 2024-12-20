@@ -1,5 +1,7 @@
-controllers:
+api_product_controllers:
     resource:
-        path: ../src/Controller/
-        namespace: App\Controller
+        path: ../src/Modules/Products/Presentation/Controllers
+        namespace: App\Modules\Products\Presentation\Controllers
     type: attribute
+    prefix: /api/products
+    name_prefix: api_products_
