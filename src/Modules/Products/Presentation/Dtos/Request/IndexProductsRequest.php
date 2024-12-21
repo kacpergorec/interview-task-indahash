@@ -9,7 +9,7 @@ class IndexProductsRequest
 {
     public function __construct(
         public SortDirection $sortDirection = SortDirection::ASC,
-        public string $sortBy = 'id',
+        public string $sortBy = 'name',
         public int $page = 1,
         public int $limit = 10
     )
