@@ -1,4 +1,17 @@
-#A simple Symfony-based product CRUD application with basic REST operations.
+> [!NOTE]
+> Thanks to everyone involved in the recruitment process! I really appreciate your time and the opportunity.
+
+
+
+## Project Overview
+- **PHP 8.3**,
+- **Symfony**,
+- **PHPUnit**,
+- **Docker**,
+- **PgSQL**
+
+## Goal
+A simple **Products CRUD**, with a emphasis on DDD, Events and Unit Tests.
 
 
 ### Startup (with Docker)
@@ -30,6 +43,16 @@ docker-compose exec php-fpm php bin/console
 docker-compose exec php-fpm php bin/console doctrine:migrations:migrate
 ```
 
+### Run tests:
+
+```sh
+docker-compose exec php-fpm php bin/phpunit
+```
+
+> [!WARNING]
+> For the sake of convenience, testing db is by default the same as the main one.
+
+
 ##  Examples of requests
 
 Paginated list:
@@ -56,3 +79,7 @@ Delete product:
 ```sh
 curl --location --request DELETE 'localhost/api/products/0193e6b0-7edb-7dbd-8551-13a3fb033ace' 
 ```
+
+
+## Conclusion
+I enjoyed working on this project and I hope it showcases my skills. I appreciate the opportunity and I look forward to hearing your feedback. Thank you for your time and consideration.

@@ -12,7 +12,7 @@ use Doctrine\Persistence\ManagerRegistry;
 /**
  * @extends ServiceEntityRepository<Product>
  */
-final class ProductRepository extends ServiceEntityRepository implements ProductRepositoryInterface
+class ProductRepository extends ServiceEntityRepository implements ProductRepositoryInterface
 {
     public function __construct(ManagerRegistry $registry)
     {
