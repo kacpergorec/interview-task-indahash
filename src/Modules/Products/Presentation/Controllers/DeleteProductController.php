@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace App\Modules\Products\Presentation\Controllers;
 
+use App\Modules\Products\Application\Events\ProductDeletionRequestEvent;
+use App\Modules\Products\Domain\ValueObjects\ProductId;
+use Psr\EventDispatcher\EventDispatcherInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Attribute\Route;
 
@@ -14,8 +16,12 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/products/{id}', name: 'delete', methods: ['DELETE'])]
 class DeleteProductController extends AbstractController
 {
-    public function __invoke(): JsonResponse
+    public function __invoke(string $id, EventDispatcherInterface $eventDispatcher): JsonResponse
     {
-        return new JsonResponse('todo');
+        $id = ProductId::fromString($id);
+
+        $eventDispatcher->dispatch(new ProductDeletionRequestEvent($id));
+
+        return new JsonResponse(null, JsonResponse::HTTP_NO_CONTENT);
     }
 }
