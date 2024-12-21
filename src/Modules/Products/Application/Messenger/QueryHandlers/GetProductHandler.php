@@ -9,7 +9,7 @@ use App\Modules\Products\Application\Factories\DtoFactory;
 use App\Modules\Products\Application\Messenger\Queries\GetProductDetailsQuery;
 use App\Modules\Products\Domain\Repositories\ProductQueryRepositoryInterface;
 
-readonly class GetProductDetailsHandler //todo: unit test
+readonly class GetProductHandler //todo: unit test
 {
     public function __construct(
        public ProductQueryRepositoryInterface $productQueryRepository

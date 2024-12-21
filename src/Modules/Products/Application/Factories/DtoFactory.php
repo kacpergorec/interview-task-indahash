@@ -6,12 +6,12 @@ namespace App\Modules\Products\Application\Factories;
 use App\Modules\Products\Application\Dtos\ProductDto;
 use App\Modules\Products\Domain\Entities\Product;
 use App\Modules\Products\Domain\ValueObjects\ProductId;
-use App\Modules\Products\Presentation\Dtos\Request\CreateProductRequest;
+use App\Modules\Products\Presentation\Dtos\Request\ProductRequestInterface;
 
 readonly class DtoFactory
 {
 
-    public static function createFromRequest(ProductId $Id, CreateProductRequest $request) : ProductDto
+    public static function createFromRequest(ProductId $Id, ProductRequestInterface $request) : ProductDto
     {
         return new ProductDto(
             id: $Id,

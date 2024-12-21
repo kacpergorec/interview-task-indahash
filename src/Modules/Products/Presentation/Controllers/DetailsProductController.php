@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Modules\Products\Presentation\Controllers;
 
-use App\Modules\Products\Application\Messenger\Queries\GetProductDetailsQuery;
-use App\Modules\Products\Application\Messenger\QueryHandlers\GetProductDetailsHandler;
+use App\Modules\Products\Application\Messenger\Queries\GetProductQuery;
+use App\Modules\Products\Application\Messenger\QueryHandlers\GetProductHandler;
 use App\Modules\Products\Domain\ValueObjects\ProductId;
 use App\Modules\Products\Presentation\Dtos\Response\ProductDetailsResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -18,11 +18,11 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/products/{id}', name: 'details', methods: ['GET'])]
 class DetailsProductController extends AbstractController
 {
-    public function __invoke(string $id, GetProductDetailsHandler $handler): JsonResponse
+    public function __invoke(string $id, GetProductHandler $handler): JsonResponse
     {
         $id = ProductId::fromString($id);
 
-        $Dto = $handler(new GetProductDetailsQuery($id));
+        $Dto = $handler(new GetProductQuery($id));
 
         return new JsonResponse(new ProductDetailsResponse(
             id: $Dto->id->toUuid()->toString(),

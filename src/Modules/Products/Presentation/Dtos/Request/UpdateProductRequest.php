@@ -5,12 +5,12 @@ namespace App\Modules\Products\Presentation\Dtos\Request;
 
 use App\Shared\Domain\Money;
 
-final readonly class CreateProductRequest implements ProductRequestInterface
+final readonly class UpdateProductRequest implements ProductRequestInterface
 {
     public function __construct(
-        public string $name,
-        public string $description,
-        public Money $grossPrice,
+        public ?string $name,
+        public ?string $description,
+        public ?Money $grossPrice
     )
     {
     }

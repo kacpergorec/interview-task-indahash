@@ -60,6 +60,21 @@ class Product extends AggregateRoot
         return $this->grossPrice;
     }
 
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+
+    public function setDescription(string $description): void
+    {
+        $this->description = $description;
+    }
+
+    public function setGrossPrice(Money $grossPrice): void
+    {
+        $this->grossPrice = $grossPrice;
+    }
+
     public function toArray(): array
     {
         return [

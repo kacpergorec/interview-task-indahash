@@ -6,7 +6,7 @@ namespace App\Modules\Products\Application\Messenger\QueryHandlers;
 use App\Modules\Products\Application\Dtos\ProductDto;
 use App\Modules\Products\Application\Exception\ProductNotFoundException;
 use App\Modules\Products\Application\Factories\DtoFactory;
-use App\Modules\Products\Application\Messenger\Queries\GetProductDetailsQuery;
+use App\Modules\Products\Application\Messenger\Queries\GetProductQuery;
 use App\Modules\Products\Application\Messenger\Queries\IndexProductsQuery;
 use App\Modules\Products\Domain\Entities\Product;
 use App\Modules\Products\Domain\Repositories\ProductQueryRepositoryInterface;
