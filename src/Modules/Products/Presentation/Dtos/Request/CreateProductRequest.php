@@ -5,7 +5,7 @@ namespace App\Modules\Products\Presentation\Dtos\Request;
 
 use App\Shared\Domain\Money;
 
-readonly final class CreateProductRequest
+final readonly class CreateProductRequest
 {
     public function __construct(
         public string $name,
