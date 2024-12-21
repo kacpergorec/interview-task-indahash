@@ -10,7 +10,7 @@ use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[AsController]
-#[Route('/', name: 'index', methods: ['GET'])]
+#[Route('/products', name: 'index', methods: ['GET'])]
 class IndexProductsController extends AbstractController
 {
     public function __invoke(): JsonResponse

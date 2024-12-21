@@ -11,7 +11,7 @@ use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[AsController]
-#[Route('/{id}', name: 'delete', methods: ['DELETE'])]
+#[Route('/products/{id}', name: 'delete', methods: ['DELETE'])]
 class DeleteProductController extends AbstractController
 {
     public function __invoke(): JsonResponse

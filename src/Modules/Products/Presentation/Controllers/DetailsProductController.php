@@ -11,7 +11,7 @@ use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[AsController]
-#[Route('/{id}', name: 'details', methods: ['GET'])]
+#[Route('/products/{id}', name: 'details', methods: ['GET'])]
 class DetailsProductController extends AbstractController
 {
     public function __invoke(): JsonResponse

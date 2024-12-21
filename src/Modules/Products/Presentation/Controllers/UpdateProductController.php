@@ -11,7 +11,7 @@ use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[AsController]
-#[Route('/{id}', name: 'update', methods: ['PATCH'])]
+#[Route('/products/{id}', name: 'update', methods: ['PATCH'])]
 class UpdateProductController extends AbstractController
 {
     public function __invoke(): JsonResponse

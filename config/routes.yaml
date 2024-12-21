@@ -3,5 +3,5 @@ api_product_controllers:
         path: ../src/Modules/Products/Presentation/Controllers
         namespace: App\Modules\Products\Presentation\Controllers
     type: attribute
-    prefix: /api/products
+    prefix: /api
     name_prefix: api_products_
